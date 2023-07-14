@@ -51,7 +51,18 @@ public:
 		}
 		else {
 			Node* current = head;
-			
+			int posisi = 1;
+			while (current != NULL) {
+				cout << "Produk" << posisi << ":" << endl;
+				cout << "Nama" << current->nama << endl;
+				cout << "Jumlah" << current->jumlah << endl;
+				cout << "Tipe" << current->tipe << endl;
+				cout << endl;
+
+				current = current->next;
+
+				posisi++;
+			}
 		}
 	}
 
@@ -65,14 +76,26 @@ public:
 			cout << "Nama Produk yang dicari: ";
 			getline(cin, targetNama);
 			Node* current = head;
-			int posisi = 0;
+			int posisi = 1;
+			bool ditemukan = false;
 			while (current != NULL) {
+				if (current->nama != targetNama) {
+					cout << "Produk ditemukan di posisi ke-" << posisi << ":" << endl;
+					cout << "Nama:" << current->nama << endl;
+					cout << "Jumlah:" << current->jumlah << endl;
+					cout << "Tipe:" << current->tipe << endl;
+					cout << endl;
+
+					ditemukan = true;
+				}
+
+				current = current->next;
+
 				posisi++;
-				//isi disini
 			}
-			if (current == NULL) {
-				cout << "Nama produk " << targetNama << " TIDAK DITEMUKAN" <<
-					endl;
+
+			if (!ditemukan) {
+				cout << "Nama produk " << targetNama << " TIDAK DITEMUKAN" << endl;
 			}
 		}
 	}
@@ -84,7 +107,17 @@ public:
 		Node* current;
 		Node* last = NULL;
 		current = head;
-		//isi disini
+		bool sorted = false;
+
+		while (!sorted) {
+			sorted = true;
+			current = head;
+
+			while (current->next != last) {
+				if (current->jumlah > current->next->jumlah) {
+				}
+			}
+		}
 	}
 };
 
@@ -120,3 +153,7 @@ int main() {
 	} while (pilihan != 5);
 	return 0;
 }
+
+
+//2. single linkedlist
+//5. a. 5 
