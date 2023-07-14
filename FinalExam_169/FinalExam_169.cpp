@@ -1,20 +1,122 @@
-// FinalExam_169.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <string>
+using namespace std;
+class Node {
+public:	string nama;	int jumlah;	string tipe;	Node* next;};class ManajemenProduk {
+private:
+	Node* head;
+public:
+	ManajemenProduk() {
+		head = NULL;
+	}
+	void tambahProduk() {
+		string nama;
+		int jumlah;
+		string tipe;
+		cout << "========== TAMBAH PRODUK ==========" << endl;
+		cout << "Nama Produk : ";
+		getline(cin, nama);
+		cout << "Jumlah Produk : ";
+		cin >> jumlah;
+		cin.ignore(); // Membersihkan buffer input
+		cout << "Tipe Produk : ";
+		getline(cin, tipe);
+		
+		Node* newNode = new Node();
+		newNode->nama = nama;
+		newNode->jumlah = jumlah;
+		newNode->tipe = tipe;
+		newNode->next = NULL;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+		if (head == NULL) {
+			head = newNode;
+		}
+
+		else {
+			Node* current = head;
+			while (current->next != NULL) {
+				current = current->next;
+			}
+
+			current->next = newNode;
+		}
+
+		cout << "Produk berhasil ditambahkan!" << endl;
+	}
+
+	void tampilkanSemuaProduk() {
+		cout << "========== SEMUA DATA PRODUK ==========" << endl;
+		if (head == NULL) {
+			cout << "Belum ada data produk yang tersimpan." << endl;
+		}
+		else {
+			Node* current = head;
+			
+		}
+	}
+
+	void cariProdukByNama() {
+		cout << "========== CARI PRODUK BERDASARKAN NAMA ==========" << endl;
+		if (head == NULL) {
+			cout << "Belum ada data produk yang tersimpan." << endl;
+		}
+		else {
+			string targetNama;
+			cout << "Nama Produk yang dicari: ";
+			getline(cin, targetNama);
+			Node* current = head;
+			int posisi = 0;
+			while (current != NULL) {
+				posisi++;
+				//isi disini
+			}
+			if (current == NULL) {
+				cout << "Nama produk " << targetNama << " TIDAK DITEMUKAN" <<
+					endl;
+			}
+		}
+	}
+
+	void algorithmaSortByJumlahProduk() {
+		if (head == NULL || head->next == NULL) {
+			return; // Tidak perlu sorting jika hanya terdapat 0 atau 1 node
+		}
+		Node* current;
+		Node* last = NULL;
+		current = head;
+		//isi disini
+	}
+};
+
+int main() {
+	ManajemenProduk manajemenProduk;
+	int pilihan;
+	do {
+		cout << "========== APLIKASI MANAJEMEN DATA PRODUK ==========" << endl;
+		cout << "1. Tambah Produk" << endl;
+		cout << "2. Tampilkan Semua Produk" << endl;
+		cout << "3. Cari Produk berdasarkan Nama" << endl;
+		cout << "4. Urutkan Produk berdasarkan Jumlah" << endl;
+		cout << "5. Keluar" << endl;
+		cout << "Pilihan: ";
+		cin >> pilihan;
+		cin.ignore();
+		switch (pilihan) {
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			cout << "Terima kasih! Program selesai." << endl;
+			break;
+		default:
+			cout << "Pilihan tidak valid. Silakan coba lagi." << endl;
+		}
+		cout << endl;
+	} while (pilihan != 5);
+	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
